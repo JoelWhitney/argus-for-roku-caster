@@ -3,27 +3,36 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		E56971E92401B0B800D11631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56971E82401B0B800D11631 /* AppDelegate.swift */; };
 		E56971EB2401B0B800D11631 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56971EA2401B0B800D11631 /* SceneDelegate.swift */; };
-		E56971ED2401B0B800D11631 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56971EC2401B0B800D11631 /* ContentView.swift */; };
+		E56971ED2401B0B800D11631 /* VideoFeedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56971EC2401B0B800D11631 /* VideoFeedsView.swift */; };
 		E56971EF2401B0BA00D11631 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56971EE2401B0BA00D11631 /* Assets.xcassets */; };
 		E56971F22401B0BA00D11631 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56971F12401B0BA00D11631 /* Preview Assets.xcassets */; };
 		E56971F52401B0BA00D11631 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56971F32401B0BA00D11631 /* LaunchScreen.storyboard */; };
+		E56971FD2401B1E200D11631 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56971FC2401B1E200D11631 /* PlayerView.swift */; };
+		E56971FF2401B25900D11631 /* PlayerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56971FE2401B25900D11631 /* PlayerUIView.swift */; };
+		E56972012401B3EC00D11631 /* CastOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56972002401B3EC00D11631 /* CastOptionsView.swift */; };
+		E569720324032BA100D11631 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569720224032BA100D11631 /* DataModels.swift */; };
+		E569720A240336ED00D11631 /* SSDPClient in Frameworks */ = {isa = PBXBuildFile; productRef = E5697209240336ED00D11631 /* SSDPClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E56971E52401B0B800D11631 /* Caster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56971E82401B0B800D11631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E56971EA2401B0B800D11631 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E56971EC2401B0B800D11631 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E56971EC2401B0B800D11631 /* VideoFeedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFeedsView.swift; sourceTree = "<group>"; };
 		E56971EE2401B0BA00D11631 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E56971F12401B0BA00D11631 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E56971F42401B0BA00D11631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E56971F62401B0BA00D11631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E56971FC2401B1E200D11631 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		E56971FE2401B25900D11631 /* PlayerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUIView.swift; sourceTree = "<group>"; };
+		E56972002401B3EC00D11631 /* CastOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastOptionsView.swift; sourceTree = "<group>"; };
+		E569720224032BA100D11631 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E569720A240336ED00D11631 /* SSDPClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,10 +68,14 @@
 			children = (
 				E56971E82401B0B800D11631 /* AppDelegate.swift */,
 				E56971EA2401B0B800D11631 /* SceneDelegate.swift */,
-				E56971EC2401B0B800D11631 /* ContentView.swift */,
+				E56971EC2401B0B800D11631 /* VideoFeedsView.swift */,
+				E569720524032C3600D11631 /* VideoFeedsView */,
+				E56971FC2401B1E200D11631 /* PlayerView.swift */,
+				E569720424032C2D00D11631 /* PlayerView */,
 				E56971EE2401B0BA00D11631 /* Assets.xcassets */,
 				E56971F32401B0BA00D11631 /* LaunchScreen.storyboard */,
 				E56971F62401B0BA00D11631 /* Info.plist */,
+				E569720224032BA100D11631 /* DataModels.swift */,
 				E56971F02401B0BA00D11631 /* Preview Content */,
 			);
 			path = Caster;
@@ -73,6 +87,22 @@
 				E56971F12401B0BA00D11631 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E569720424032C2D00D11631 /* PlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				E56971FE2401B25900D11631 /* PlayerUIView.swift */,
+			);
+			path = PlayerView;
+			sourceTree = "<group>";
+		};
+		E569720524032C3600D11631 /* VideoFeedsView */ = {
+			isa = PBXGroup;
+			children = (
+				E56972002401B3EC00D11631 /* CastOptionsView.swift */,
+			);
+			path = VideoFeedsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +121,9 @@
 			dependencies = (
 			);
 			name = Caster;
+			packageProductDependencies = (
+				E5697209240336ED00D11631 /* SSDPClient */,
+			);
 			productName = Caster;
 			productReference = E56971E52401B0B800D11631 /* Caster.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +152,9 @@
 				Base,
 			);
 			mainGroup = E56971DC2401B0B800D11631;
+			packageReferences = (
+				E5697208240336ED00D11631 /* XCRemoteSwiftPackageReference "SSDPClient" */,
+			);
 			productRefGroup = E56971E62401B0B800D11631 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -147,8 +183,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E56971E92401B0B800D11631 /* AppDelegate.swift in Sources */,
+				E56971FF2401B25900D11631 /* PlayerUIView.swift in Sources */,
 				E56971EB2401B0B800D11631 /* SceneDelegate.swift in Sources */,
-				E56971ED2401B0B800D11631 /* ContentView.swift in Sources */,
+				E56972012401B3EC00D11631 /* CastOptionsView.swift in Sources */,
+				E569720324032BA100D11631 /* DataModels.swift in Sources */,
+				E56971ED2401B0B800D11631 /* VideoFeedsView.swift in Sources */,
+				E56971FD2401B1E200D11631 /* PlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +382,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E5697208240336ED00D11631 /* XCRemoteSwiftPackageReference "SSDPClient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pierrickrouxel/SSDPClient.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E5697209240336ED00D11631 /* SSDPClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5697208240336ED00D11631 /* XCRemoteSwiftPackageReference "SSDPClient" */;
+			productName = SSDPClient;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E56971DD2401B0B800D11631 /* Project object */;
 }
