@@ -11,12 +11,37 @@ import SSDPClient
 
 struct CastOptionsView: View {
     @ObservedObject var servicesViewModal: CastServicesViewModal
+    @Environment(\.presentationMode) var presentationMode
+    
     var videoFeed: VideoFeed
     
+    func back() {
+        presentationMode.wrappedValue.dismiss()
+    }
+    
     var body: some View {
-        List(servicesViewModal.castOptions.filter( { $0.info != nil } )) { castOption in
-            CastServiceCell(castOption: castOption, videoFeed: self.videoFeed)
-          }.navigationBarTitle(Text("Services"))
+        VStack {
+            List(servicesViewModal.castOptions.filter( { $0.info != nil } )) { castOption in
+                CastServiceCell(castOption: castOption, videoFeed: self.videoFeed)
+            }
+            Button(action: {
+                print("Cancek tapped!")
+                self.back()
+            }) {
+                HStack {
+                    Image(systemName: "xmark.square")
+                        .font(.title)
+                    Text("Cancel")
+                        .font(.system(size: 16))
+                }
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding(10)
+                .foregroundColor(Color.primary)
+                .colorInvert()
+                .background(Color.primary)
+                .cornerRadius(.infinity)
+            }.padding(.leading, 20).padding(.vertical, 35)
+        }.navigationBarTitle(Text("Services"))
     }
 }
 

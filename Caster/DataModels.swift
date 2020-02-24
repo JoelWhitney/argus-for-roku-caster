@@ -41,13 +41,18 @@ class CastServicesViewModal: ObservableObject {
     }
 }
 
-class CastOption: Identifiable {
+class CastOption: NSObject, Identifiable, XMLParserDelegate {
     var id = UUID()
     var service: SSDPService
     var info: String?
     
+    var elementName: String = String()
+    var name = String()
+    var location = String()
+    
     init(service: SSDPService) {
         self.service = service
+        super.init()
         getInfo()
     }
     
@@ -67,10 +72,39 @@ class CastOption: Identifiable {
              
                     if let data = data, let dataString = String(data: data, encoding: .utf8) {
                         print("Response data string:\n \(dataString)")
+                        let parser = XMLParser(data: data)
+                        parser.delegate = self
+                        parser.parse()
+                        
                         self.info = dataString
                     }
             }
             task.resume()
+    }
+    
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+
+        if elementName == "friend-device-name" {
+            name = String()
+        } else if elementName == "user-device-location" {
+            location = String()
+        }
+    }
+
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        //
+    }
+
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        let data = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+
+        if (!data.isEmpty) {
+            if self.elementName == "friend-device-name" {
+                name += data
+            } else if self.elementName == "user-device-location" {
+                location += data
+            }
+        }
     }
 }
 

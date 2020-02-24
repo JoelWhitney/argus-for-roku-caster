@@ -27,6 +27,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.makeKeyAndVisible()
         }
     }
+    
+    // GET URL FROM LINK HERE
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let link = URLContexts.first?.url else {
+            return
+        }
+        
+        let components = URLComponents(url: link, resolvingAgainstBaseURL: false)
+        if let comp = components, let queryItems = comp.queryItems, let host = queryItems.filter( {$0.name == "host" } ).first?.value, let type = queryItems.filter( {$0.name == "streamformat" } ).first?.value, let url = queryItems.filter( {$0.name == "url" } ).first?.value {
+            let rokuLink = URL(string: "http://\(host):8060/launch/578841?streamformat=\(type)&url=\(url.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)")
+            print(link)
+            print(rokuLink!)
+            
+            var request = URLRequest(url: rokuLink!)
+            request.httpMethod = "POST"
+                
+                let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                        
+                        if let error = error {
+                            print("Error took place \(error)")
+                            return
+                        }
+                 
+                        if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                            print("Response data string:\n \(dataString)")
+                        }
+                }
+                task.resume()
+        }
+    }
+
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
